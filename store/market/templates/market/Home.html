@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{% static 'market/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Hallmart</h1>
+        {% for m in menu %}
+        <div><a href="{% url m.url %}">{{ m.title }}</a></div>
+        {% endfor %}
+    </header>
+    
+    <div class="header_shop">
+        <div class="header_shop_1">
+          <span class="oval-text">Хиты продаж</span>
+        </div>
+      </div>
+
+    <section class="shop">
+        <div class="shop-product">
+            <button class="shop_btn_1">Shop now</button>
+        </div>
+        <div class="shop-product">
+            <button class="shop_btn_2">Shop now</button>
+        </div>
+        <div class="shop-product">
+            <button class="shop_btn_3">Shop now</button>
+        </div>
+        <div class="shop-product">
+            <button class="shop_btn_4">Shop now</button>
+        </div>
+        <div class="shop-product">
+            <button class="shop_btn_5">Shop now</button>
+        </div>
+        <div class="shop-product">
+            <button class="shop_btn_6">Shop now</button>
+        </div>
+        <div class="shop-product">
+            <button class="shop_btn_7">Shop now</button>
+        </div>
+    </section>
+
+</body> 
+</html>

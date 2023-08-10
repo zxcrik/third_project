@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="{% static 'market/css/style_products.css' %}">
+</head>
+<body>
+    <h1>{{ title }}:</h1>
+    <ul class="list">
+        {% for product in products %}
+            <h2><li>{{ product.product_name_2 }} : {{ product.product_price_2 }} руб <button class="busket_btn">Добавить в корзину</button></li></h2>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
