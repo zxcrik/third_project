@@ -23,7 +23,7 @@ class Product_2(models.Model):
     product_last_date_2 = models.DateTimeField(default=datetime.datetime.today() + datetime.timedelta(days=7))
     product_description_2 = models.TextField(null=False, blank=False)
     product_price_2 = models.PositiveSmallIntegerField(null=False, blank=False)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name = 'Product_2'

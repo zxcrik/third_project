@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product_2, Busket
+from .models import Product_2, Busket, Category
+
 
 # Create your views here.
 
@@ -11,6 +12,8 @@ menu = [
     {'title':'Your busket','url':'busket'}
 ]
 
+
+
 def Home(request):
     data = {
         'title':'Главная',
@@ -20,18 +23,22 @@ def Home(request):
 
 def products(request):
     products = Product_2.objects.all()
+    categories = Category.objects.all()
     data = {
         'title':'Список продуктов',
         'menu':menu,
-        'products':products
+        'products':products,
+        'categories':categories
     }
     return render(request,'market/products.html', data)
 
 def busket(request):
-    busket_list = Busket.products_in_busket.all()
+    busket_items = Busket.objects.all()
     data = {
         'title':'Корзина с продуктами',
         'menu':menu,
-        'list_of_products':busket_list
+        'busket_items':busket_items
     }
     return render(request, 'market/busket.html', data)
+
+

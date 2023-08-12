@@ -5,15 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="{% static 'market/css/style_products.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'market/css/Product.css' %}">
+    <link rel="stylesheet" href="{% static 'market/css/Header.css' %}">
 </head>
 <body>
-    <h1>{{ title }}:</h1>
-    <ul class="list">
-        {% for product in products %}
-            <h2><li>{{ product.product_name_2 }} : {{ product.product_price_2 }} руб <button class="busket_btn">Добавить в корзину</button></li></h2>
+    <header>
+        <h1>Hallmart</h1>
+        {% for m in menu %}
+        <div>
+            <a href="{% url m.url %}">{{ m.title }}</a>
+        </div>
         {% endfor %}
-    </ul>
+    </header>
 
+    <section class="main">
+        <div class="categories">
+            <a href="">Все товары</a>
+
+            {% for ctgr in categories %}
+            <a href="">{{ctgr.name}}</a>
+            {% endfor %}
+        </div>
+
+        <div class="products">
+            <h1>Все продукты</h1>
+                {% for p in products %}
+                <div class="product--item">
+                    <span class="product-category">Категория: {{ p.category.name }}</span>
+                    <div class="product-info">
+                        <h3>{{ p.product_name_2 }}</h3>
+                        <div>   
+                            <p class="product-price">{{ p.product_price_2}} RUB</p>
+                            <button class="to-shop-button">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+        </div>
+    </section>
+
+    
 </body>
 </html>

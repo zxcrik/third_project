@@ -5,22 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="{% static 'market/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'market/css/Home.css' %}">
+    <link rel="stylesheet" href="{% static 'market/css/Header.css' %}">
+
 </head>
 <body>
     <header>
         <h1>Hallmart</h1>
         {% for m in menu %}
-        <div><a href="{% url m.url %}">{{ m.title }}</a></div>
+        <div>
+            <a href="{% url m.url %}">{{ m.title }}</a>
+        </div>
         {% endfor %}
     </header>
     
+    <section class="home-page-title">
+        <h1>Django store</h1>
+        <h3>Наш магазин занимается продажей бытовых продуктов</h3>
+        <p>В нашем магазине вы сможете купить продукты онлайн</p>
+    </section>
+
     <div class="header_shop">
         <div class="header_shop_1">
           <span class="oval-text">Хиты продаж</span>
         </div>
-      </div>
+    </div>
 
+    
     <section class="shop">
         <div class="shop-product">
             <button class="shop_btn_1">Shop now</button>
