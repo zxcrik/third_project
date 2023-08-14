@@ -4,10 +4,12 @@ import datetime
 # Create your models here.
 
 class Product(models.Model):
-    product_name = models.CharField(max_length=255)
-    product_last_date = models.DateField()
+    product_name = models.CharField(max_length=255)       # Модель не работает  #
+    product_last_date = models.DateField()  
     product_description = models.TextField()
     product_price = models.PositiveSmallIntegerField()
+
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -17,21 +19,16 @@ class Category(models.Model):
 
     def __str__(self) -> str:
         return self.name
-    
-class Product_2(models.Model):
-    product_name_2 = models.CharField(max_length=255)
-    product_last_date_2 = models.DateTimeField(default=datetime.datetime.today() + datetime.timedelta(days=7))
-    product_description_2 = models.TextField(null=False, blank=False)
-    product_price_2 = models.PositiveSmallIntegerField(null=False, blank=False)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+
+class Desc(models.Model):
+    product_descript = models.TextField(max_length=200)
 
     class Meta:
-        verbose_name = 'Product_2'
-        verbose_name_plural = 'Products_2'
+        verbose_name = 'desc'
+        verbose_name_plural = 'descriptions'
 
-    def __str__(self) -> str:
-        return self.product_name_2
-    
+    def __str__(self):
+        return self.product_descript
     
 class Busket(models.Model):
     size_busket = models.CharField(max_length=100)
@@ -41,3 +38,20 @@ class Busket(models.Model):
 
     def __str__(self) -> str:
         return self.size_busket
+    
+class Product_2(models.Model):
+    product_name_2 = models.CharField(max_length=255)
+    product_last_date_2 = models.DateTimeField(default=datetime.datetime.today() + datetime.timedelta(days=7))
+    product_description_2 = models.TextField(null=False, blank=False)
+    product_price_2 = models.PositiveSmallIntegerField(null=False, blank=False)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    description = models.ForeignKey(Desc,on_delete=models.CASCADE, null=True)
+    busket =  models.ForeignKey(Busket,on_delete=models.CASCADE, null=True)
+    class Meta:
+        verbose_name = 'Product_2'
+        verbose_name_plural = 'Products_2'
+
+    def __str__(self) -> str:
+        return self.product_name_2
+    
+

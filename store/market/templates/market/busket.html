@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'market/css/Basket.css' %}">
-    <link rel="stylesheet" href="{% static 'market/css/Home.css' %}">
-
+    <link rel="stylesheet" href="{% static 'market/css/Header.css' %}">
 </head>
 <body>
     <header>
-        <h1>Hallmart</h1>
         {% for m in menu %}
         <div>
             <a href="{% url m.url %}">{{ m.title }}</a>
@@ -24,14 +22,14 @@
 
         {% for b_item in busket_items %}
         <div class="busket--item">
-            <span>Товар №{{b_item.id}}</span>
+            <span>Товар №{{ b_item.id }}</span>
             <div class="busket-item--info">
                 <div>
                     <h3>Название: {{ b_item.product.name }}</h3>
-                    <p>Категория: {{b_item.product.category.name}}</p>
+                    <p>Категория: {{ b_item.product.category.name }}</p>
                 </div>
                 <div>
-                    <p class="product-price">{{ b_item.product.product_price_2 }} RUB</p>
+                    <p class="product-price">{{ b_item.product.price }} RUB</p>
                     <button class="to-shop-button">Убрать из корзины</button>
                 </div>
             </div>

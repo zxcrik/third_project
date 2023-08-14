@@ -22,5 +22,6 @@ urlpatterns = [
     path('',views.Home, name='home'),
     path('products/',views.products, name='products'),
     path('busket/',views.busket, name='busket'),
+    path('desc/',views.desc, name='description')
     # path('details/<int:product_id>/',views.details),
 ]
