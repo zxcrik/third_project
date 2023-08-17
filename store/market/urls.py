@@ -19,9 +19,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    # path('details/<int:product_id>/',views.details),
     path('',views.Home, name='home'),
     path('products/',views.products, name='products'),
     path('busket/',views.busket, name='busket'),
-    path('desc/',views.desc, name='description')
-    # path('details/<int:product_id>/',views.details),
+    path('products/description/<int:product_id>',views.desc, name='description'),
+    path('add/', views.add_product, name='add'),
 ]

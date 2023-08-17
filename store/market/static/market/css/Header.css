@@ -20,14 +20,6 @@ header div a {
     text-decoration: none;
 }
 
-/* header div a::before{
-    display: block;
-    position: ;
-    bottom: ;
-    left: ;
-    height: ;
-} */
-
 header div a:hover {
     border-bottom: 1px solid #000;
 }

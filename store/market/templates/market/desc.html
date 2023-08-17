@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{% static 'market/css/Header.css' %}">
     <link rel="stylesheet" href="{% static 'market/css/Desc.css' %}">
-
+    <link rel="stylesheet" href="{% static 'market/css/header.css' %}">
 </head>
 <body>
     <header>
-        <h1>Hallmart</h1>
         {% for m in menu %}
         <div>
             <a href="{% url m.url %}">{{ m.title }}</a>
@@ -19,17 +17,31 @@
         {% endfor %}
     </header>
 
-    <section class="desc-page-title">
-        <h3>Описание всех продуктов </h3>
-    </section>
+    <section class="main">
+        <h1>Описание продукта</h1>
 
-    <section>
-        {% for p in products %}
-        <div class="desc-item">
-            <h3>{{ p.product_name_2 }}</h3>
-            <p>{{ p.product_description_2}}</p>
+        <span class="p-preinfo">
+            <p>№ {{ product.id }} | Категория: {{ product.category.name }}</p>
+        </span>
+
+        <div class="p-details">
+            <span>
+                <p><b>Название:</b></p>
+                <p>{{ product.name }}</p>
+            </span>
+            <span>
+                <p><b>Описание:</b></p>
+                <p>{{ product.description }}</p>
+            </span>
+            <span>
+                <p><b>Цена:</b></p>
+                <p>{{ product.price }} RUB</p>
+            </span>
+            <span>
+                <p><b>Срок годности:</b></p>
+                <p>{{ product.best_before_date }}</p>
+            </span>
         </div>
-        {% endfor %}
     </section>
 </body>
 </html>

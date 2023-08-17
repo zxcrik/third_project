@@ -34,9 +34,9 @@
                 <div class="product--item">
                     <span class="product-category">Категория: {{ p.category.name }}</span>
                     <div class="product-info">
-                        <h3>{{ p.product_name_2 }}</h3>
+                        <a href="{% url 'description' p.id %}">{{ p.name }}</a>
                         <div>   
-                            <p class="product-price">{{ p.product_price_2}} RUB</p>
+                            <p class="product-price">{{ p.price}} RUB</p>
                             <button class="to-shop-button">Добавить в корзину</button>
                         </div>
                     </div>
@@ -45,7 +45,5 @@
 
         </div>
     </section>
-
-    
 </body>
 </html>
